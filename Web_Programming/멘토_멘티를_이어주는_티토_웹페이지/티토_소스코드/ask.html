@@ -1,0 +1,78 @@
+<!doctype html>
+<html>
+  <head>
+    <title>멘토와 멘티를 이어주는 티토</title>
+    <meta charset="utf-8">
+    <link href="main.css" rel="stylesheet"/>
+    <link href="askstylesheet.css" rel="stylesheet"/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+
+    </script>
+    <script src="main.js"></script>
+    <script>
+
+    </script>
+  </head>
+  <body>
+    <div id="main-wrapper">
+    <!-- 질문하기 페이지 -->
+    <div id="main">
+      <div id="ask">
+        <h1>질문하기</h1>
+        <div id="askwrapper">
+            <form>
+              <!-- 작성자 입력란 -->
+              <div class="title-wrapper" id="first">
+              <h1 class="title">작성자</h1>
+              <input class="in"type="text" name="작성자" size=22 style="height:25px;"/>
+            </div>
+            <!-- 질문분야 선택란 드롭다운박스로 되어있다. -->
+            <div class="title-wrapper" id="second">
+              <h1 class="title">질문 분야</h1>
+              <select id="drop" style="width:60px">
+                <option value="0" > &nbsp; </option>
+                <option value="1"> &nbsp;기계</option>
+                <option value="2"> &nbsp;체육</option>
+                <option value="3"> &nbsp;미술</option>
+                <option value="4"> &nbsp;음악</option>
+                <option value="5"> &nbsp;컴퓨터</option>
+                <option value="6"> &nbsp;경영</option>
+                <option value="7"> &nbsp;무역</option>
+                <option value="8"> &nbsp;회계</option>
+              </select>
+            </div>
+            <!-- 제목입력란 -->
+            <div class="title-wrapper" id="third">
+              <h1 class="title">제목</h1>
+              <input class="in" type="text" name="제목" size=80 style="height:25px;"/>
+            </div>
+            <!-- 내용입력란 -->
+            <div id="fourth">
+              <h1 class="title">내용</h1>
+              <input class="in" type="text" name="내용" size=80 style="height:450px;"/>
+            </div>
+            <!-- 첨부파일란 -->
+            <div id="fifth">
+              <h1 class="title">첨부 파일</h1>
+              <input id="file" class="in" type="file" name="file" size=80/>
+            </div>
+            <!-- 작성완료와 취소를 누르면 창이 닫힌다.  -->
+            <div id="submit-wrapper">
+              <button id="close" onclick="window.close('ask.html')">취소</button>
+              <input id="complete" type="submit" value="작성완료" name="작성완료" onclick="window.close('ask.html')"/>
+
+            </div>
+            </form>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  	<div id="footer">
+  	</div>
+
+  </body>
+
+</html>

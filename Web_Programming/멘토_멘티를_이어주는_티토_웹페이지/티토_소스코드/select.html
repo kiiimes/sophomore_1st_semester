@@ -1,0 +1,461 @@
+<!doctype html>
+<html>
+  <head>
+    <title>멘토와 멘티를 이어주는 티토</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+    <link href="main.css" rel="stylesheet"/>
+    <link href="search/searchstyle.css" rel="stylesheet"/>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+    <script src="background-blur.min.js"></script>
+      <script>
+      $(document).ready(function(){
+            // menu 클래스 바로 하위에 있는 a 태그를 클릭했을때
+
+            $("#iconlink").click(function(){
+              $("#smallmenu").slideToggle('normal');
+        });
+
+        });
+    $(document).ready(function(){
+      $('#yohan').mouseenter(function(){
+          $(this).css('display','none'),
+          $('#yohan-blur').css('display','inline-block');
+      }),
+      $('#yohan-blur').mouseleave(function(){
+        $(this).css('display','none'),
+        $('#yohan').css('display','inline-block');
+      });
+    });
+    $(document).ready(function(){
+      $('#huiin').mouseenter(function(){
+          $(this).css('display','none'),
+          $('#huiin-blur').css('display','inline-block');
+      }),
+      $('#huiin-blur').mouseleave(function(){
+        $(this).css('display','none'),
+        $('#huiin').css('display','inline-block');
+      });
+    });
+    $(document).ready(function(){
+      $('#somi').mouseenter(function(){
+          $(this).css('display','none'),
+          $('#somi-blur').css('display','inline-block');
+      }),
+      $('#somi-blur').mouseleave(function(){
+        $(this).css('display','none'),
+        $('#somi').css('display','inline-block');
+      });
+    });
+    $(document).ready(function(){
+      $('#bogum').mouseenter(function(){
+          $(this).css('display','none'),
+          $('#bogum-blur').css('display','inline-block');
+      }),
+      $('#bogum-blur').mouseleave(function(){
+        $(this).css('display','none'),
+        $('#bogum').css('display','inline-block');
+      });
+    });
+    $(document).ready(function(){
+      $('#doyeon').mouseenter(function(){
+          $(this).css('display','none'),
+          $('#doyeon-blur').css('display','inline-block');
+      }),
+      $('#doyeon-blur').mouseleave(function(){
+        $(this).css('display','none'),
+        $('#doyeon').css('display','inline-block');
+      });
+    });
+    </script>
+    <script type="text/javascript">
+        function wrapWindowByMask(){
+            // 화면의 높이와 너비를 변수로 만듭니다.
+            var maskHeight = $(document).height();
+            var maskWidth = $(window).width();
+
+            // 마스크의 높이와 너비를 화면의 높이와 너비 변수로 설정합니다.
+            $('.mask').css({'width':maskWidth,'height':maskHeight});
+
+            // fade 애니메이션 : 1초 동안 검게 됐다가 80%의 불투명으로 변합니다.
+            $('.mask').fadeTo("slow",0.8);
+
+            // 레이어 팝업을 가운데로 띄우기 위해 화면의 높이와 너비의 가운데 값과 스크롤 값을 더하여 변수로 만듭니다.
+            var left = ( $(window).scrollLeft() + ( $(window).width() - $('.window').width()) / 2 );
+            var top = ( $(window).scrollTop() + ( $(window).height() - $('.window').height()) / 2 );
+
+            // css 스타일을 변경합니다.
+            $('.window').css({'left':left,'top':top, 'position':'absolute'});
+
+            // 레이어 팝업을 띄웁니다.
+            $('.window').show();
+        }
+
+        $(document).ready(function(){
+            // showMask를 클릭시 작동하며 검은 마스크 배경과 레이어 팝업을 띄웁니다.
+            $('.showMask-overlay').click(function(e){
+                // preventDefault는 href의 링크 기본 행동을 막는 기능입니다.
+                e.preventDefault();
+                wrapWindowByMask();
+                //$(".window").load("best_mento_person_popup.html");
+            });
+
+            // 닫기(close)를 눌렀을 때 작동합니다.
+            $('.window .close').click(function (e) {
+                e.preventDefault();
+                $('.mask, .window').hide();
+            });
+
+            // 뒤 검은 마스크를 클릭시에도 모두 제거하도록 처리합니다.
+            $('.mask').click(function () {
+                $(this).hide();
+                $('.window').hide();
+            });
+        });
+    </script>
+    <script>
+    //    $(document).ready(function(){
+      //      var college=$('.college').val('인문대').prop('selected').text();
+        //    alert(college);
+        //});
+
+
+    </script>
+    <style>
+      @media screen and (max-width:1400px){
+        #left{
+          display:none;
+        }
+      }
+      @media screen and (min-width:1401px){
+        #menu-icon{
+          display:none;
+        }
+        #smallmenu{
+          display:none;
+        }
+      }
+      #smallmenu{
+        display:none;
+
+        width:200px;
+        margin:0 auto;
+      }
+      .mask {
+          position:absolute;
+          left:0;
+          top:0;
+          z-index:9999;
+          background-color:#000;
+          display:none;
+      }
+      .window {
+          display: none;
+          background-color: #ffffff;
+          height: 860px;
+          width:1000px;
+          z-index:99999;
+          overflow:scroll;
+          overflow-x: hidden;
+      }
+    </style>
+
+  </head>
+  <body>
+    <div class="mask"></div>
+    <div class="window">
+      <div id="p-main-wrapper">
+  		    <div id="p-main">
+        <section id="p-main-section">
+          <!-- start content -->
+          <h1>인기 멘토</h1>
+          <hr/>
+
+          <article>
+            <!-- upper side = mentoring field & mentor profile -->
+            <div id="p-c-top">
+              <!-- left side = mentoring field-->
+              <div id="p-c-top-left">
+                <!-- left side upper part = mentoring field icon-->
+                <div id="mentor-field">
+                  <h2>멘토링 분야</h2>
+                  <div class="mentoring" id="mentoring-1">
+                    <img src="best_mento/ic_zookeeper.jpg" width=150 height=150>
+                    <div class="mentoring-text">사육사</div>
+                  </div>
+                  <div class="mentoring" id="mentoring-2">
+                    <img src="best_mento/ic_animal.jpg" width=150 height=150>
+                    <div class="mentoring-text">동물</div>
+                  </div>
+                  <div class="mentoring" id="mentoring-3">
+                    <img src="best_mento/ic_communication.jpg" width=150 height=150>
+                    <div class="mentoring-text">교감</div>
+                  </div>
+                </div>
+                <!-- left side lower part = mentee-->
+                <div id="mentee">
+                  <h2>멘티 3명</h2>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">김길동</div>
+                  </div>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">이길동</div>
+                  </div>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">최길동</div>
+                  </div>
+                </div>
+              </div>
+              <!-- right side = mentor profile-->
+              <div id="p-c-top-right">
+                <div id="mentor-profile">
+                  <img src="best_mento/김도연 멘토.jpg" width=150 height=150/>
+                  <div id="mentor-profile-text">
+                    <p>동물복지 1과</p>
+                    <p>김도연 멘토</p>
+                    <p>서울동물원</p>
+                  </div>
+                </div>
+                <div id="question">
+                  <button id="question-btn" type="submit"><img id="btn-img" src="best_mento/btn_question.jpg"></button>
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <!-- lower side = mentor information & mentee review -->
+            <div id="p-c-bottom">
+              <div id="p-c-bot-left">
+                <div class="mentor-info" id="mentor-pr">
+                  <h4>멘토 소개</h4>
+                  <p>동물원에서 일하고 싶다면<br/>
+                    기린과 교감을 하고싶다면<br/>
+                    김도연 멘토와 함께하세요</p>
+                </div>
+                <div class="mentor-info" id="mentor-carrier">
+                  <h4>멘토 이력</h4>
+                  <p>서울대공원 동물원 근무중
+                    <br/>서울대학교 대학원 분류생태학 박사과정
+                    <br/>서울대학교 대학원 동물자원학 석사 졸업
+                    <br/>서울대학교 수의학과 졸업</p>
+                </div>
+                <div class="mentor-info" id="mentor-etc">
+                  <h4>기타</h4>
+                  <p>동물에 관심이 많다면 주저하지 마세요!</p>
+                </div>
+              </div>
+              <div id="p-c-bot-right">
+                <h4>멘티 후기</h4>
+                <div class="review" id="review-1">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-2">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-3">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-4">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+              </div>
+
+            </div>
+          </article>
+          <!-- finish content -->
+        </section>
+
+  		</div>
+
+  	</div>
+    </div>
+    <div id="main-wrapper">
+      <div id="smallmenu"><nav class="menu">
+        <ul class="main-menu">
+
+          <li class="outer-menu">
+            <span><a class="m">멘토검색</a></span>
+          </li>
+
+          <li class="outer-menu">
+            <span><a href="best_mento.html" class="m">인기멘토</a></span>
+          </li>
+          <li class="outer-menu">
+            <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+            <ul class="inner-menu menu_no1">
+              <li class="inner-menu-item"><a href="talent.html">재능기부란?</a></li>
+              <li class="inner-menu-item">
+                <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+                <ul class="talent">
+                  <li class="inner-inner-menu-item"><a>지식,기술 기부</a></li>
+                  <li class="inner-inner-menu-item"><a>강연,설명회 기부</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="outer-menu">
+            <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+            <ul class="inner-menu menu_no2">
+              <li class="inner-menu-item"><a>공지사항</a></li>
+              <li class="inner-menu-item"><a>자유게시판</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav></div>
+      <div id="left">
+  			<nav id="upper-link">
+  				<br/>
+  				<a class="sitemap-link" href="#">SITE MAP</a>
+  				<a class="header-bar">|</a>
+  				<a class="-link" href="#">SITE MAP</a>
+  			</nav>
+  			<header class="logo">
+  				<a href="index.html"></a>
+  			</header>
+  			<nav class="menu">
+  				<ul class="main-menu">
+
+  					<li class="outer-menu">
+  						<span><a class="m">멘토검색</a></span>
+  					</li>
+  					<li class="outer-menu">
+  						<span><a href="best_mento.html" class="m">인기멘토</a></span>
+  					</li>
+  					<li class="outer-menu">
+  						<span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+  						<ul class="inner-menu menu_no1">
+  							<li class="inner-menu-item"><a href="talent.html">재능기부란?</a></li>
+  							<li class="inner-menu-item">
+  								<span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+  								<ul class="talent">
+  									<li class="inner-inner-menu-item"><a>지식,기술 기부</a></li>
+  									<li class="inner-inner-menu-item"><a>강연,설명회 기부</a></li>
+  								</ul>
+  							</li>
+  						</ul>
+  					</li>
+  					<li class="outer-menu">
+  						<span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+  						<ul class="inner-menu menu_no2">
+  							<li class="inner-menu-item"><a>공지사항</a></li>
+  							<li class="inner-menu-item"><a>자유게시판</a></li>
+  						</ul>
+  					</li>
+  				</ul>
+  			</nav>
+  			<footer>
+  				<img class="foot-logo" src="http://placehold.it/260x130" width="260px" height="130px"/>
+  				<p class="description">웹프로그래밍 팀플</p>
+  			</footer>
+  		</div>
+      <div id="menu-icon">
+        <a href="#" id="iconlink"><img id="icon" src="메인 아이콘.png" alt="메인 아이콘"/></a>
+      </div>
+
+    <div id="main">
+      <div id="search-box">
+          <h1>멘토 검색</h1>
+
+          <hr/>
+          <div class="search-top">
+            <select class="college" name="college-search" size="1" form="search">
+              <option value="단과대학">단과대학</option>
+              <option value="inmununiv" id="inmun" >인문대</option>
+              <option value="경상대" id="kyung">경상대</option>
+              <option value="공대" id="gong">공대</option>
+              <option value="자연대" id="jayeon">자연대</option>
+              <option value="소융대" id="soft" selected="selected">소프트웨어융합대학</option>
+            </select>
+            <select class="major" name="college-search" size="1" form="search">
+              <option value="단과대학">학과</option>
+              <option class="인문" value="국어국문">국어국문학과</option>
+              <option class="인문" value="역사학과">역사학과</option>
+              <option class="인문" value="교육학과">교육학과</option>
+              <option class="인문" value="영어영문">영어영문과</option>
+              <option class="인문" value="일어일문">일어일문과</option>
+              <option class="경상" value="경제">경제학과</option>
+              <option class="경상" value="경영">경영학과</option>
+              <option class="경상" value="무역">무역학과</option>
+              <option class="경상" value="회계">회계학과</option>
+              <option class="경상" value="통계">통계과</option>
+              <option class="공대" value="건축공학">건축공학과</option>
+              <option class="공대" value="기계공학">기계공학과</option>
+              <option class="공대" value="나노신소재">나노신소재학과</option>
+              <option class="공대" value="원자력">원자력학과</option>
+              <option class="공대" value="항공시스템">항공시스템과</option>
+              <option class="자연대" value="수학">수학과</option>
+              <option class="자연대" value="물리천문">물리천문과</option>
+              <option class="자연대" value="화학">화학과</option>
+              <option class="자연대" value="생명시스템">생명시스템과</option>
+              <option class="자연대" value="식품공학">식품공학과</option>
+              <option class="소융대" value="컴퓨터공학" selected="selected">컴퓨터공학과</option>
+              <option class="소융대" value="소프트웨어">소프트웨어과</option>
+              <option class="소융대" value="정보보호">정보보호학과</option>
+              <option class="소융대" value="데이터사이언스">데이터사이언스학과</option>
+              <option class="소융대" value="지능기전">지능기전공학과</option>
+            </select>
+
+            <div id="search">
+              <div class="search-input">
+                <form>
+                  <input type="text" name="입력" value="변요한"/>
+                </form>
+              </div>
+              <a href="select.html">
+              <div class="search-button">
+                <img width="45"width="40" alt="검색버튼" src="search/검색버튼.png" />
+              </div>
+            </a>
+            </div>
+            <div id="check">
+              <form>
+                <input type="checkbox" name="interest" value="기계"><span>기계</span>
+                <input type="checkbox" name="interest" value="체육"><span>체육</span>
+                <input type="checkbox" name="interest" value="천문"><span>천문</span>
+                <input type="checkbox" name="interest" value="외식"><span>외식</span>
+                <input type="checkbox" name="interest" value="경영"><span>경영</span>
+                <input type="checkbox" name="interest" value="영화"><span>영화</span>
+                <input type="checkbox" name="interest" value="음악"><span>음악</span>
+                <input type="checkbox" name="interest" value="회계"><span>회계</span>
+                <input type="checkbox" name="interest" value="IT"><span>IT</span>
+                <br/>
+                <input type="checkbox" name="interest" value="생물"><span>생물</span>
+                <input type="checkbox" name="interest" value="미술"><span>미술</span>
+                <input type="checkbox" name="interest" value="역사"><span>역사</span>
+                <input type="checkbox" name="interest" value="무역"><span>무역</span>
+                <input type="checkbox" name="interest" value="수학"><span>수학</span>
+              </form>
+            </div>
+          </div>
+  <!--여기에 넣어보자-->
+  <div id="mask"></div>
+
+
+
+          <div class="search-bottom">
+            <div class="mento"><table class="outline">
+              <tr><td><img id="yohan" class="mento-image" src="search/변요한 멘토.jpg" alt="멘토 사진"/><img class="blur-mento" id="yohan-blur" src="search/요한 블러.png" alt="멘토 블러"/></td></tr>
+              <tr><td><p class="mento-info">이름 : 변요한<br/>학년 : 3학년<br/>전공 : 컴퓨터공학과</p><br/>
+              </td></tr>
+            </table><button class="mento-button" onclick="window.open('ask.html','질문하기','width=770,height=600,location=no,status=no,scrollbars=yes,resizable=no');">질문하기</button><input class="mento-button" onclick=alert('신청되었습니다!') type="button" value="멘토신청" name="멘토신청"/></div>
+          </div>
+              <a id="topgo" href="#search-box"><img src="search/위로 가기.png" alt="맨 위로"/></a>
+      </div>
+      </div>
+    </div>
+
+
+
+  	<div id="footer">
+  	</div>
+
+  </body>
+
+</html>

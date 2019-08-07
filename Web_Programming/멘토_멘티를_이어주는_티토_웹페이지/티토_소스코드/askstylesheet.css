@@ -1,0 +1,66 @@
+/*드롭다운 리스트의 크기와 위치를 정한다.*/
+form>select{
+  display:inline-block;
+  width:60px;
+}
+
+/*가장 상단의 질문하기 글씨 크기와 색 위치등을 조정한다.*/
+#ask>h1{
+  font-size:120%;
+  color:white;
+  background:rgb(182,163,143);
+  width:750px;
+  padding-left:10px;
+}
+/*작성자 제목 내용과 같은 title의 글씨 크기와 위치를 정한다.*/
+.title{
+  font-size:105%;
+  float:left;
+  margin-right:5px;
+  width:100px;
+  color:rgb(77,64,51);
+  padding-left:25px;
+}
+/*textbox를 float 시킨다.*/
+.in{
+  float:left;
+}
+/*각각 제목과 textbox 등의 위치 조정*/
+.title-wrapper{
+  height:40px;
+}
+#drop{
+  float:left;
+}
+#first{
+  margin-top:10px;
+}
+#fourth{
+  height:480px;
+}
+#submit-wrapper{
+  width:700px;
+}
+
+/*작성완료 버튼의 css 설정*/
+#complete{
+  float:right;
+
+  border:1px solid rgb(225,225,225);
+  border-radius:5px;
+  background-color:rgb(241,238,235);
+}
+/*파일 첨부 버튼의 css 설정*/
+#file{
+  border:1px solid rgb(225,225,225);
+  border-radius:5px;
+  background-color:rgb(241,238,235);
+}
+/*취소 버튼의 css 설정*/
+#close{
+  float:right;
+  border:1px solid rgb(225,225,225);
+  border-radius:5px;
+  background-color:rgb(241,238,235);
+  margin-left:15px;
+}

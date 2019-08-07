@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>멘토와 멘티를 이어주는 티토</title>
+    <link href="main.css" rel="stylesheet" />
+    <meta charset="UTF-8" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="notice.js"></script>
+    <script src="main.js"></script>
+    <link href="notice.css" rel="stylesheet" />
+  	 <!-- small menu slide function -->
+  	<script>
+  		$(document).ready(function(){
+  	  	$("#iconlink").click(function(){
+  	  		$("#smallmenu").slideToggle('normal');
+  	 		});
+  	 	});
+  	 </script>
+  	 <!-- dynamic web inner stylesheet -->
+    <style>
+      @media screen and (max-width:1400px){
+        #main{
+         margin-left: 0;
+         margin-top: 0;
+        }
+        #main-section {
+          margin: 0;
+          width: 960px;
+        }
+        #left{
+          display:none;
+        }
+      }
+      @media screen and (min-width:1401px){
+        #menu-icon{
+          display:none;
+        }
+        #smallmenu{
+          display:none;
+        }
+      }
+      #smallmenu{
+        display:none;
+        width:200px;
+        margin:0 auto;
+      }
+    </style>
+</head>
+
+<body>
+    <div id="black-screen">
+        <div id="white-board">
+            <header>
+                <h1>글쓰기</h1>
+                <a href="javascript:;" class="x" onclick="close_board()"></a>
+            </header>
+            <section>
+                <p>제목</p>
+                <input type="text" id="title" >
+                <textarea id="content" cols="100" rows="25"></textarea>
+                <a class="write-ok" href="javascript:;" onclick="get_form()">글쓰기</a>
+                <a class="write-cancel" href="javascript:;" onclick="close_board()">취소</a>
+            </section>
+        </div>
+    </div>
+    <div id="login">
+		<div id="wh">
+			<header>
+                <h1>로그인</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_login()"></a>
+            </header>
+            <section>
+				<h3>ＩＤ</h3>
+				<input type="text" id="lid">
+				<br/>
+				<h3>ＰＷ</h3>
+				<input type="password" id="lpw">
+				<br/>
+				<a href="javascript:;" onclick="log_in()">로그인</a>
+				<a href="javascript:;" onclick="logtoreg()">회원가입</a>
+            </section>
+		</div>
+	</div>
+	<div id="sign">
+		<div id="wh">
+			<header>
+                <h1>회원가입</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_sign()"></a>
+            </header>
+            <section>
+				<h3>ＩＤ</h3>
+				<input type="text" id="rid">
+				<br/>
+				<h3>ＰＷ</h3>
+				<input type="password" id="rpw">
+				<br/>
+				<h3>PW확인</h3>
+				<input type="password" id="re-pw">
+				<a href="javascript:;" onclick="reg()">회원가입</a>
+            </section>
+
+		</div>
+	</div>
+	<div id="main-wrapper">
+		<div id="smallmenu">
+	        <nav class="menu">
+	        <ul class="main-menu">
+
+	          <li class="outer-menu">
+	            <span><a href="search.html" class="m">멘토검색</a></span>
+	          </li>
+
+	          <li class="outer-menu">
+	            <span><a href="best_mento.html" class="m">인기멘토</a></span>
+	          </li>
+	          <li class="outer-menu">
+	            <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+	            <ul class="inner-menu menu_no1">
+	              <li class="inner-menu-item"><a href="Talent.html">재능기부란?</a></li>
+	              <li class="inner-menu-item">
+	                <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+	                <ul class="talent">
+	                  <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+	                  <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+	                </ul>
+	              </li>
+	            </ul>
+	          </li>
+	          <li class="outer-menu">
+	            <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+	            <ul class="inner-menu menu_no2">
+	              <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+	              <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+	            </ul>
+	          </li>
+	        </ul>
+	      </nav></div>
+	  <div id="left">
+	        <nav id="upper-link">
+	          <br/>
+	          <a class="sitemap-link" href="javascript:;" onclick="login()">로그인</a>
+	          <a class="header-bar">|</a>
+	          <a class="-link" href="javascript:;" onclick="signup()">회원가입</a>
+	        </nav>
+	        <header class="logo">
+	          <a href="index.html"></a>
+	        </header>
+	        <nav class="menu">
+	          <ul class="main-menu">
+
+	            <li class="outer-menu">
+	              <span><a href="search.html" class="m">멘토검색</a></span>
+	            </li>
+	            <li class="outer-menu">
+	              <span><a href="best_mento.html" class="m">인기멘토</a></span>
+	            </li>
+	            <li class="outer-menu">
+	              <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+	              <ul class="inner-menu menu_no1">
+	                <li class="inner-menu-item"><a href="Talent.html">재능기부란?</a></li>
+	                <li class="inner-menu-item">
+	                  <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+	                  <ul class="talent">
+	                    <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+	                    <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+	                  </ul>
+	                </li>
+	              </ul>
+	            </li>
+	            <li class="outer-menu">
+	              <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+	              <ul class="inner-menu menu_no2">
+	                <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+	                <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+	              </ul>
+	            </li>
+	          </ul>
+	        </nav>
+	        <footer>
+	          <img class="foot-logo" src="resource_main/footer_logo2.png" width="260px" height="130px" />
+	          <p class="description">웹프로그래밍 팀플</p>
+	        </footer>
+	      </div>
+	  <div id="menu-icon">
+	        <a href="#" id="iconlink"><img id="icon" src="search/메인 아이콘.png" alt="메인 아이콘" width=40 height=40/></a>
+	      </div>
+        <div id="main">
+            <div id="board">
+                <header>
+                    <a class="notice-botton" href="javascript:;"></a>
+                    <a class="free-botton" href="free.html"></a>
+                    <a class="write" href="javascript:;" onclick="write_post()"></a>
+                </header>
+                <section class="posts">
+                    <div class="postline-top">
+                        <a class="title">제목</a>
+                        <a class="writer">작성자</a>
+                    </div>
+                    <div class="post1 postline">
+                        <a class="title" href="javascript:;">티토 홈페이지가 오픈되었습니다.</a>
+                        <a class="writer">관리자</a>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="utf-8">
+ <title>멘토와 멘티를 이어주는 티토</title>
+<head>
+	<title>TEETO</title>
+  <!-- menu external stylesheet -->
+	<link href="main.css" rel="stylesheet" />
+	<link href="index.css" rel="stylesheet" />
+  <!-- bestmentor external stylesheet -->
+  <link href="best_mento.css" rel="stylesheet" />
+  <!-- bestmentor popup external stylesheet -->
+  <link href="best_mento_person_popup.css" rel="stylesheet" />
+	<meta charset="UTF-8" />
+  <!-- dynamic web for menu -->
+  <meta name="viewport" content="user-scalable=no,initial-scale=1,maximum-scale=1"/>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <!-- menu JS -->
+  <script src="masonry.pkgd.min.js"></script>
+  <script src="main.js"></script>
+  <script src="index.js"></script>
+  <!-- popup function -->
+  <script type="text/javascript">
+      // set mask/popup
+      function wrapWindowByMask(){
+          // window height/width to variation
+          var maskHeight = $(document).height();
+          var maskWidth = $(window).width();
+
+          // mask size -> window size
+          $('.mask').css({'width':maskWidth,'height':maskHeight});
+
+          // fade animation : blackout 1sec -> 80% opacity
+          $('.mask').fadeTo("slow",0.8);
+
+          // popup to center : (window.width/height + popup.width/height) /2 -> variable
+          var left = ( $(window).scrollLeft() + ( $(window).width() - $('.window').width()) / 2 );
+          var top = ( $(window).scrollTop() + ( $(window).height() - $('.window').height()) / 2 );
+
+          // css style
+          $('.window').css({'left':left,'top':top, 'position':'absolute'});
+
+          // show layer popup
+          $('.window').show();
+      }
+      // set onClick/close event
+      $(document).ready(function(){
+          // showMask onclick -> show mask/popup
+          $('.showMask-overlay').click(function(e){
+              // preventDefault -> prevent href default link
+              e.preventDefault();
+              wrapWindowByMask();
+          });
+
+          // click mask -> close(hide) popup
+          $('.mask').click(function () {
+              $(this).hide();
+              $('.window').hide();
+          });
+      });
+  </script>
+  <!-- real-time clock function -->
+  <script type="text/javascript">
+    //fuction call per 1sec
+    setInterval("dpTime()",1000);
+    function dpTime(){
+      //now date
+      var now = new Date();
+      month = now.getMonth()+1;
+      day = now.getDate();
+      hours = now.getHours();
+      minutes = now.getMinutes();
+      seconds = now.getSeconds();
+      //time format
+      if (hours > 12){
+        hours -= 12;
+        ampm = "오후 ";
+      }else{
+        ampm = "오전 ";
+      }
+      if (hours < 10){
+        hours = "0" + hours;
+      }
+      if (minutes < 10){
+        minutes = "0" + minutes;
+      }
+      if (seconds < 10){
+        seconds = "0" + seconds;
+      }
+      // insert data by innerHTML
+      document.getElementById("dpTime").innerHTML = month+"월 " + day+"일 " + ampm + hours + ":" + minutes + ":" + seconds;
+    }
+  </script>
+  <!-- scroll recommend mentor auto -->
+  <script type="text/javascript">
+    // init var
+    // @param scroll_el_id : ul element's id
+    function textScroll(scroll_el_id) {
+        this.objElement = document.getElementById(scroll_el_id);
+        this.objElement.style.position = 'relative';
+        this.objElement.style.overflow = 'hidden';
+
+        //object li
+        this.objLi = this.objElement.getElementsByTagName('li');
+        this.height = 50; // li height to move
+        this.num = this.objLi.length; // total li number
+        this.totalHeight = this.height*this.num; // total height = height*number
+        this.scrollspeed = 2; // scroll px per sec = speed
+        this.objTop = new Array(); // save each li top position
+        this.timer = null;
+
+        // set css
+        for(var i=0; i<this.num; i++){
+            this.objLi[i].style.position = 'absolute';
+            this.objTop[i] = this.height*i;
+            //set top
+            this.objLi[i].style.top = this.objTop[i]+"px";
+        }
+    }
+    // define prototype function "move"
+    // scroll all
+    textScroll.prototype.move = function(){
+        //scroll one time
+        for(var i=0; i<this.num; i++) {
+            this.objTop[i] = this.objTop[i] - this.scrollspeed;
+            this.objLi[i].style.top = this.objTop[i]+"px";
+        }
+        //process top to bot
+        if(this.objTop[0]%this.height == 0){
+            this.jump();
+        }else{
+            clearTimeout(this.timer);
+            this.timer = setTimeout(this.name+".move()",50);
+        }
+    }
+    // define prototype function "jump"
+    // top to bottom when top element gone away from display
+    textScroll.prototype.jump = function(){
+      //gone away top element go bottom
+        for(var i=0; i<this.num; i++){
+            if(this.objTop[i] == this.height*(-2)){
+                this.objTop[i] = this.objTop[i] + this.totalHeight;
+                this.objLi[i].style.top = this.objTop[i]+"px";
+            }
+        }
+        clearTimeout(this.timer);
+        this.timer = setTimeout(this.name+".move()",3000);
+    }
+    //every 3 sec start scroll
+    textScroll.prototype.start = function() {
+        this.timer = setTimeout(this.name+".move()",3000);
+    }
+  </script>
+  <!-- new mentor left/right button onclick -->
+  <script type="text/javascript">
+    // new mentor elements only 2 -> left process == right process
+    // left button
+    function left_button(){
+      var con1 = document.getElementById("new-mentor-1");
+      var con2 = document.getElementById("new-mentor-2");
+      var page = document.getElementById("new-mentor-state");
+      //if con1 show -> con2 none
+      //else con1 none -> con2 show
+      if(con1.style.display=='none'){
+          con1.style.display = 'inline-block';
+          con2.style.display = 'none';
+          page.innerHTML="1/2";
+      }else{
+          con1.style.display = 'none';
+          con2.style.display = 'inline-block';
+          page.innerHTML="2/2";
+      }
+    }
+    // right button
+    function right_button(){
+      var con1 = document.getElementById("new-mentor-1");
+      var con2 = document.getElementById("new-mentor-2");
+      var page = document.getElementById("new-mentor-state");
+      //if con1 show -> con2 none
+      //else con1 none -> con2 show
+      if(con1.style.display=='none'){
+          con1.style.display = 'inline-block';
+          con2.style.display = 'none';
+          page.innerHTML="1/2";
+      }else{
+          con1.style.display = 'none';
+          con2.style.display = 'inline-block';
+          page.innerHTML="2/2";
+      }
+    }
+  </script>
+  <!-- small menu slide function -->
+  <script>
+    $(document).ready(function(){
+      $("#iconlink").click(function(){
+        $("#smallmenu").slideToggle('normal');
+      });
+    });
+  </script>
+  <!-- popup inner stylesheet -->
+  <!-- dynamic web inner stylesheet -->
+  <style>
+    /*
+    * design when menu -> small menu
+    * main margin X, center align X
+    */
+    @media screen and (max-width:1400px){
+      #main{
+        margin-left: 0;
+        margin-top: 0;
+      }
+      #main-section {
+        margin: 0;
+        width: 960px;
+      }
+      #left{
+        display:none;
+      }
+    }
+    /*
+    * design when small menu -> menu
+    * small menu none
+    */
+    @media screen and (min-width:1401px){
+      #menu-icon{
+        display:none;
+      }
+      #smallmenu{
+        display:none;
+      }
+    }
+    #smallmenu{
+      display:none;
+
+      width:200px;
+      margin:0 auto;
+    }
+    /*
+    * mask all didplay -> position absolute
+    * 다른 element보다 위에 있도록 z-index : 9999
+    */
+    .mask {
+      position:absolute;
+      left:0;
+      top:0;
+      z-index:9999;
+      background-color:#000;
+      display:none;
+    }
+    /*
+    * set size -> consider my popup size
+    * mask보다도 위에 있도록 z-index : 99999
+    */
+    .window {
+      display: none;
+      background-color: #ffffff;
+      height: 860px;
+      width:1000px;
+      z-index:99999;
+      overflow:scroll;
+      overflow-x: hidden;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="mask"></div>
+  <!-- start popup window content -->
+  <div class="window">
+    <div id="p-main-wrapper">
+  		<div id="p-main">
+        <section id="p-main-section">
+          <!-- start content -->
+          <h1>인기 멘토</h1>
+          <hr/>
+
+          <article>
+            <!-- p-c-~~ : best-mentor css와 best-mentor-popup css랑 겹치지 않도록 -->
+            <!-- upper side = mentoring field & mentor profile -->
+            <div id="p-c-top">
+              <!-- left side = mentoring field-->
+              <div id="p-c-top-left">
+                <!-- left side upper part = mentoring field icon-->
+                <div id="mentor-field">
+                  <h2>멘토링 분야</h2>
+                  <div class="mentoring" id="mentoring-1">
+                    <img src="best_mento/ic_zookeeper.jpg" width=150 height=150>
+                    <div class="mentoring-text">사육사</div>
+                  </div>
+                  <div class="mentoring" id="mentoring-2">
+                    <img src="best_mento/ic_animal.jpg" width=150 height=150>
+                    <div class="mentoring-text">동물</div>
+                  </div>
+                  <div class="mentoring" id="mentoring-3">
+                    <img src="best_mento/ic_communication.jpg" width=150 height=150>
+                    <div class="mentoring-text">교감</div>
+                  </div>
+                </div>
+                <!-- left side lower part = mentee-->
+                <div id="mentee">
+                  <h2>멘티 3명</h2>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">김길동</div>
+                  </div>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">이길동</div>
+                  </div>
+                  <div class="mentee" id="mentee-1">
+                    <img src="best_mento/ic_mentee.jpg" width=60 height=60>
+                    <div class="mentoring-text">최길동</div>
+                  </div>
+                </div>
+              </div>
+              <!-- right side = mentor profile-->
+              <div id="p-c-top-right">
+                <div id="mentor-profile">
+                  <img src="best_mento/김도연 멘토.jpg" width=150 height=150/>
+                  <div id="mentor-profile-text">
+                    <p>동물복지 1과</p>
+                    <p>김도연 멘토</p>
+                    <p>서울동물원</p>
+                  </div>
+                </div>
+                <div id="question">
+                  <button id="question-btn" type="submit"><img id="btn-img" src="best_mento/btn_question.jpg"></button>
+                </div>
+              </div>
+            </div>
+            <hr/>
+
+            <!-- lower side = mentor information & mentee review -->
+            <div id="p-c-bottom">
+              <div id="p-c-bot-left">
+                <div class="mentor-info" id="mentor-pr">
+                  <h4>멘토 소개</h4>
+                  <p>동물원에서 일하고 싶다면<br/>
+                    기린과 교감을 하고싶다면<br/>
+                    김도연 멘토와 함께하세요</p>
+                </div>
+                <div class="mentor-info" id="mentor-carrier">
+                  <h4>멘토 이력</h4>
+                  <p>서울대공원 동물원 근무중
+                    <br/>서울대학교 대학원 분류생태학 박사과정
+                    <br/>서울대학교 대학원 동물자원학 석사 졸업
+                    <br/>서울대학교 수의학과 졸업</p>
+                </div>
+                <div class="mentor-info" id="mentor-etc">
+                  <h4>기타</h4>
+                  <p>동물에 관심이 많다면 주저하지 마세요!</p>
+                </div>
+              </div>
+              <div id="p-c-bot-right">
+                <h4>멘티 후기</h4>
+                <div class="review" id="review-1">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-2">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-3">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+                <div class="review" id="review-4">
+                  <p>김도연 멘토님 감사합니다! 너무 뜻깊은 시간이 아닐 수가 없는 엄청난 시간인듯한 것이었던 것입니다.</p>
+                  <p>이길동멘티</p>
+                </div>
+              </div>
+
+            </div>
+          </article>
+          <!-- finish content -->
+        </section>
+  		</div>
+      <!-- finish popup main-->
+	   </div>
+     <!-- finish popup main wrapper-->
+  </div>
+  <!-- finish popup window content -->
+  <!-- login popup -->
+  <div id="login">
+		<div id="wh">
+			<header>
+                <h1>로그인</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_login()"></a>
+            </header>
+            <section>
+				<h3>ＩＤ</h3>
+				<input type="text" id="lid">
+				<br/>
+				<h3>ＰＷ</h3>
+				<input type="password" id="lpw">
+				<br/>
+				<a href="javascript:;" onclick="log_in()">로그인</a>
+				<a href="javascript:;" onclick="logtoreg()">회원가입</a>
+            </section>
+		</div>
+	</div>
+  <!-- signin popup -->
+	<div id="sign">
+		<div id="wh">
+			<header>
+                <h1>회원가입</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_sign()"></a>
+            </header>
+            <section>
+				<h3>ＩＤ</h3>
+				<input type="text" id="rid">
+				<br/>
+				<h3>ＰＷ</h3>
+				<input type="password" id="rpw">
+				<br/>
+				<h3>PW확인</h3>
+				<input type="password" id="re-pw">
+				<a href="javascript:;" onclick="reg()">회원가입</a>
+            </section>
+
+		</div>
+	</div>
+
+  <div id="main-wrapper">
+    <!-- small menu -->
+    <div id="smallmenu">
+        <nav class="menu">
+        <ul class="main-menu">
+
+          <li class="outer-menu">
+            <span><a href="search.html" class="m">멘토검색</a></span>
+          </li>
+
+          <li class="outer-menu">
+            <span><a href="#" class="m">인기멘토</a></span>
+          </li>
+          <li class="outer-menu">
+            <!-- menuOpen(1) -> 재능기부 -->
+            <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+            <ul class="inner-menu menu_no1">
+              <li class="inner-menu-item"><a href="talent.html">재능기부란?</a></li>
+              <li class="inner-menu-item">
+                <!-- smenuOpen() -> 하위 메뉴 open -->
+                <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+                <ul class="talent">
+                  <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+                  <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+            <!-- menuOpen(2) -> 게시판 -->
+          <li class="outer-menu">
+            <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+            <ul class="inner-menu menu_no2">
+              <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+              <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+            </ul>
+          </li>
+        </ul>
+      </nav></div>
+    <!-- menu -->
+    <div id="left">
+        <nav id="upper-link">
+          <br/>
+          <a class="sitemap-link" href="javascript:;" onclick="login()">로그인</a>
+          <a class="header-bar">|</a>
+          <a class="-link" href="javascript:;" onclick="signup()">회원가입</a>
+        </nav>
+        <header class="logo">
+          <a href="index.html"></a>
+        </header>
+        <nav class="menu">
+          <ul class="main-menu">
+
+            <li class="outer-menu">
+              <span><a href="search.html" class="m">멘토검색</a></span>
+            </li>
+            <li class="outer-menu">
+              <span><a href="best_mento.html" class="m">인기멘토</a></span>
+            </li>
+            <li class="outer-menu">
+              <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+              <ul class="inner-menu menu_no1">
+                <li class="inner-menu-item"><a href="Talent.html">재능기부란?</a></li>
+                <li class="inner-menu-item">
+                  <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+                  <ul class="talent">
+                    <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+                    <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+            <li class="outer-menu">
+              <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+              <ul class="inner-menu menu_no2">
+                <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+                <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+        <footer>
+          <img class="foot-logo" src="resource_main/footer_logo2.png" width="260px" height="130px" />
+          <p class="description">웹프로그래밍 팀플</p>
+        </footer>
+      </div>
+    <!-- small menu icon -->
+    <div id="menu-icon">
+        <a href="#" id="iconlink"><img id="icon" src="search/메인 아이콘.png" alt="메인 아이콘" width=40 height=40/></a>
+      </div>
+    <!-- best mento content -->
+    <div id="main">
+      <section id="main-section">
+        <!-- start content -->
+        <h1>인기 멘토</h1>
+        <hr/>
+
+        <article>
+          <!-- upper side = new mentor & recent rating -->
+          <div id="c-top">
+            <!-- c-~~ : best-mentor css와 index/main css랑 겹치지 않도록 -->
+            <!-- left side = new mentor intro-->
+            <div id="c-left">
+              <div id="new-mentor-title">신규 멘토</div>
+              <!-- img button using warning : don't line break -->
+              <button class="new-mentor-btn" id="new-mentor-prev-page-btn" type="submit" onclick="left_button()"><img class="btn-img" src="best_mento/ic_keyboard_arrow_left_black_24dp_2x.png"></button>
+              <ul id="new-mentor-container">
+                <li class="new-mentor" id="new-mentor-1">
+                  <img id="new-mentor-img" src="best_mento/유재석 멘토.jpg" width="200px" height="200px"/>
+                  <div class="new-mentor-content">
+                    <div id="new-mentor-intro">유부장 | 무한도전 MC | FNC엔터테인먼트</div>
+                    <div id="new-mentor-field-title">[대표 멘토링 분야]</div>
+                    <div id="new-mentor-field">행사 진행, 레크레이션, 화법</div>
+                    <div id="new-mentor-selfpr">"말"을 독점하면 "적"이 많아진다.<br/> 적게 말하고 많이 들어라.<br/> 들을수록 내편이 많아진다.</div>
+                  </div>
+                </li>
+                <li class="new-mentor" id="new-mentor-2">
+                  <img id="new-mentor-img" src="best_mento/런닝맨 유재석 멘토.jpg" width="200px" height="200px"/>
+                  <div class="new-mentor-content">
+                    <div id="new-mentor-intro">유재석 | 런닝맨 MC | FNC엔터테인먼트</div>
+                    <div id="new-mentor-field-title">[대표 멘토링 분야]</div>
+                    <div id="new-mentor-field">예능 진행, 이름표 떼기, 몰아가기</div>
+                    <div id="new-mentor-selfpr">칭찬에 "발"이 달려있다면<br/> 험담에는 "날개"가 달려있다<br/> 허물은 덮고 칭찬은 자주해라.</div>
+                  </div>
+                </li>
+              </ul>
+
+              <button class="new-mentor-btn" id="new-mentor-next-page-btn" type="submit" onclick="right_button()"><img class="btn-img" src="best_mento/ic_keyboard_arrow_right_black_24dp_2x.png"></button>
+              <div id="new-mentor-state">1/2</div>
+            </div>
+            <!-- right side = recently rating mentor-->
+            <div id="c-right">
+              <div id="c-right-header">
+                <h2>추천 멘토</h2>
+                <h3 id="dpTime"></h3>
+              </div>
+              <div>
+                <ul id="recent-rate-mentor">
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">김도연 멘토님 엄청 친절하시고 키가 엄청 커서 물건을 잘</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">박보검 멘토님 구르미 달빛을 그리는 것 같아요 ㅎㅎㅎ</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">변요한 멘토님 연기에 있어선 인정사정 볼 것 없이 막</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">전소미 멘토님 중학생이신데 저보다 더 잘벌고 다녀요</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">휘인 멘토님 딱 1센치 차이도 놓치지 않는 섬세하신</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">유재석 멘토님 말을 쉬지 않고 하는 법을 아주 장황</a>
+                  </li>
+                  <li class="recent-rate-mentor-item">
+                    <a href="#">Dummy Data 멘토님 만드는거도 일이네요 알이에요</a>
+                  </li>
+                </ul>
+
+                <!-- start scroll -->
+                <script type="text/javascript">
+                  var real_search_keyword = new textScroll('recent-rate-mentor');
+                  real_search_keyword.name = "real_search_keyword"; // 인스턴스 네임을 등록합니다
+                  real_search_keyword.start(); // 스크롤링 시작
+                </script>
+
+              </div>
+            </div>
+          </div>
+
+          <hr/>
+
+          <!-- lower side = best mento -->
+          <div id="c-bottom">
+            <div class="best-mentor">
+              <div class="best-mentor-rank">1</div>
+              <a href="#" class="showMask">
+                <img id="best-mentor-img" src="best_mento/김도연 멘토.jpg" width="288" height="288"/>
+                <div id="best-mentor-profile">
+                  <div id="best-mentor-field">동물복지 1과</div>
+                  <div id="best-mentor-name">김도연</div>
+                  <div id="best-mentor-company">서울 동물원</div>
+                </div>
+              </a>
+              <a href="#" class="showMask-overlay">
+                <div class="overlay-content">평균답변일 : 0.77일<br/>답변수 : 85건<br/>멘티수 : 38명</div>
+              </a>
+            </div>
+            <div class="best-mentor">
+              <div class="best-mentor-rank">2</div>
+              <a href="#" class="showMask">
+                <img id="best-mentor-img" src="best_mento/박보검 멘토.jpg" width="288" height="288"/>
+                <div id="best-mentor-profile">
+                  <div id="best-mentor-field">동물복지 1과</div>
+                  <div id="best-mentor-name">박보검</div>
+                  <div id="best-mentor-company">서울 동물원</div>
+                </div>
+              </a>
+              <a href="#" class="showMask-overlay">
+                <div class="overlay-content">평균답변일 : 0.90일<br/>답변수 : 76건<br/>멘티수 : 35명</div>
+              </a>
+            </div>
+            <div class="best-mentor">
+              <div class="best-mentor-rank">3</div>
+              <a href="#" class="showMask">
+                <img id="best-mentor-img" src="best_mento/변요한 멘토.jpg" width="288" height="288"/>
+                <div id="best-mentor-profile">
+                  <div id="best-mentor-field">동물복지 1과</div>
+                  <div id="best-mentor-name">변요한</div>
+                  <div id="best-mentor-company">서울 동물원</div>
+                </div>
+              </a>
+              <a href="#" class="showMask-overlay">
+                <div class="overlay-content">평균답변일 : 1.3일<br/>답변수 : 73건<br/>멘티수 : 30명</div>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- finish content -->
+      </section>
+
+		</div>
+
+	</div>
+  <!-- our footer in menu bar(#left) -->
+	<div id="footer">
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,276 @@
+﻿/* 모든 파일에 적용되는 css */
+
+* {
+	margin : 0;
+	padding: 0;
+	font-family : 'Malgun Gothic', '맑은 고딕', sans-serif;
+	font-size : 16px;
+	color: #555555;
+	/* 모든 요소에 margin, padding 은 0 으로 초기화
+	font는 맑은 고딕으로 사용하고, 없을 경우 sans-serif 사용
+	폰트 크기는 16px로 지정해놓고 %, em 등을 사용하여 규격화하기로 통일
+	black은 눈의 피로가 심하므로 #555555의 옅은 검은색 사용
+	 */
+}
+
+a {
+	text-decoration: none;
+	color: #555555;
+	/* 링크의 decoration 제거 */
+}
+
+li {
+	list-style: none;
+	/* 리스트의 스타일 제거 */
+}
+
+body {
+	height: 100%;
+    min-height: 100%;
+	background: white;
+
+	/* body의 height를 창크기로 고정 background 색을 white로 지정 */
+}
+
+/* 좌측 메뉴부 적용되는 css */
+
+#left{
+	position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+	height: 100%;
+	min-height: 650px;
+    border-right: 1px solid #e5e5e5;
+    background-color: rgb(231,238,235);
+	width: 320px;
+
+	/* 좌측 메뉴부는 창의 끝까지 꽉 차 있어야 하므로
+	position: fixed height: 100% 지정
+	기본적으로 상위에 존재해야 하므로 z-index 지정
+	 */
+}
+#left nav{
+	display: block;
+	width: 100%;
+	height: 4%;
+
+	/*left id 후손중 nav 초기화*/
+}
+
+#upper-link a{
+
+	display:block;
+	font-size: 75%;
+	float: left;
+	font-weight: bold;
+	color: rgb(130,130,130);
+
+	/*상단 메뉴 링크 style*/
+}
+
+.sitemap-link{
+	margin-left: 110px;
+}
+
+.header-bar{
+	float:left;
+	font-size: 40%;
+	margin: 0 10px;
+}
+
+#upper-link a:hover{
+	color: rgb(30,30,30);
+	transition: color 0.7s;
+
+	/* 상단 링크 위에 hover 할 경우 색 변경 지정 */
+}
+
+.logo > a{
+	margin : 80px 40px 0px 40px;
+	background: url("resource_main/main_logo.png") no-repeat;
+	background-position:-25px -110px;
+	display:block;
+	width: 283x;
+	height: 60px;
+}
+
+.menu {
+	margin-top: 50px;
+	text-align: center;
+
+	min-height: 50%;
+
+	/* 메뉴 가운데 정렬, 창 크기가 줄어들어도 메뉴 자체가 줄어들지 않게 min-height 지정 */
+}
+
+
+/* 메뉴 스타일 */
+.outer-menu{
+	margin-bottom: 50px;
+}
+.outer-menu span{
+	font-weight: bold;
+	display: block;
+
+}
+
+.outer-menu a{
+	font-size: 150%;
+	color: rgb(80,80,80);
+	margin-bottom:10px;
+}
+
+.outer-menu a:hover{
+	color: rgb(30,30,30);
+	text-shadow: 0.1px 0.1px rgb(30,30,30);
+	transition: color 0.7s;
+}
+
+.inner-menu{
+	margin-left: 30px;
+	text-align: left;
+	display: none;
+	color: rgb(130,130,130);
+}
+
+.inner-menu-item{
+	margin-top: 10px;
+	font-weight: bold;
+}
+.inner-menu-item a{
+	font-size: 110%;
+	color: rgb(130,130,130);
+	margin-left: 20px;
+}
+.inner-menu-item span{
+	font-weight: bold;
+}
+
+.inner-inner-menu-item{
+	margin-top: 10px;
+	font-size: 80%;
+	font-weight: normal;
+	margin-left: 20px;
+}
+
+.talent{
+	display: none;
+}
+.foot-logo{
+	display: block;
+	margin-left: 30px;
+	float: none !important; /* 타 css 코드의 img 태그에 영향을 안받기 위해 !important  사용 */
+	border: solid 0.3px #e5e5e5;
+}
+.description {
+	margin-left: 30px;
+	margin-top: 20px;
+	font-size: 80%;
+}
+.smaller {
+	color: rgba(130,130,130,0.5) !important;
+}
+
+/* 좌측 메뉴에서 특정 버튼을 눌렀을 경우 실행되는 창에 대한 css*/
+#login{
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	z-index: 101;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+}
+#sign{
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	z-index: 101;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+}
+
+/* 각각 로그인과 회원가입 버튼을 클릭했을때 나오는 뒤의 검은 배경을 위한 css
+	좌측 메뉴보다 상단에 위치해야 하므로 z-index : 100
+	창 전체를 채울 수 있도록 하며 스크롤에도 영향을 받지 않아야 하므로 position: fixed, width, height: 100%로 지정
+ */
+#wh{
+	top: 8%;
+	left: 5%;
+	position: fixed;
+	width: 360px;
+	height: 35%;
+	z-index : 102;
+	background-color: white;
+	display: block;
+	border-radius: 15px;
+
+	/* 로그인과 회원가입을 위한 흰색창  */
+}
+
+.xbtn{
+	float: right;
+	width: 20px;
+	height: 20px;
+	margin-right: 15px;
+	margin-top: 12px;
+	background: url('resource_main/X-icon.png');
+	background-size: 100%;
+
+	/* 로그인 회원가입 창 닫는 버튼 */
+}
+
+#wh header{
+	text-align: center;
+	margin-top: 5%;
+
+}
+#wh h1{
+	font-size: 150%;
+	display: inline-block;
+}
+
+#wh h3{
+	font-size: 150%;
+	display: inline-block;
+	margin-left: 20px;
+	font-weight: normal;
+	margin-bottom: 30px;
+	vertical-align: center;
+	width: 25%;
+}
+
+#wh input{
+	display: inline-block;
+	width: 60%;
+	height: 32px;
+	margin-bottom: 30px;
+}
+#wh section{
+	margin-top: 20px;
+}
+#wh section a{
+	width: 80%;
+	height: 32px;
+	margin:10px 10% 10px 10%;
+	display: inline-block;
+	text-align: center;
+	vertical-align: center;
+	border-radius: 3px;
+	background-color: rgba(130,130,130,0.5);
+	font-weight: bold;
+	font-size: 120%;
+	color: white;
+}
+#wh section a:hover{
+	background-color: orange;
+}
+/* 로그인 회원가입 창 내부 스타일 */

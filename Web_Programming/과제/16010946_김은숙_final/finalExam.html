@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-3.2.1.js"></script>
+    <link rel="stylesheet" href="finalExam.css">
+
+    <title>HTML5 Basic Page</title>
+    <script>
+      window.onload=function(){
+        var clock=document.getElementById('tiime');
+
+        setInterval(function(){
+          var now=new Date();
+          tiime.innerHTML=now.toString();
+        },1000);
+        var count=0;
+        var array=document.getElementsByClassName('ll');
+
+
+
+
+
+        function view(){
+          for(var i=0;i<array.length;i++){
+            $(array[i]).prependTo('aside-list');
+          }
+        }
+      };
+    </script>
+    <script>
+      $(document).ready(function(){
+        var appendDocument=function(){
+          for (var i=0;i<30;i++){
+            $('<h1>eeeeeeeeee</h1>').prependTo('footer');
+
+          }
+        };
+          appendDocument();
+          $(window).scroll(function(){
+            var scrollHeight=$(window).scrollTop()+$(window).height();
+            var documentHeight=$(document).height();
+
+            if(scrollHeight==documentHeight){
+              appendDocument();
+            }
+
+        });
+      });
+    </script>
+
+    <script>
+      /*  window.onload=function(){
+          var count=0;
+          var array=document.getElementsByClassName('aside-list');
+
+          for(var i=0;i<array.length;i++){
+            $(array).prependTo('.aside-list');
+          }
+
+          setInterval(function(){
+            var content=array[count%array.length];
+            count=count+1;
+          },1000);
+
+
+
+
+        };*/
+    </script>
+  <script>
+      /*  window.onload=function(){
+          var count=0;
+          var array=document.getElementsByClassName('ll');
+
+
+
+
+
+          function view(){
+            for(var i=0;i<array.length;i++){
+              $(array[i]).prependTo('aside-list');
+            }
+          }
+
+          view();
+
+          setInterval(function(){
+            var sav=array[0];
+            array[0]=array[1];
+            array[1]=array[2];
+            array[2]=array[3];
+            array[3]=array[4];
+            array[4]=sav;
+          },1000);
+          setInterval();
+        };*/
+    </script>
+    <style>
+    #tiime{
+      float:right;
+    }
+    .aside-list{
+      position:fixed;
+      height:200px;
+    }
+
+
+    </style>
+</head>
+<body>
+<div id="page-wrapper">
+    <header id="main-header">
+        <hgroup>
+            <h1 class="master-title" >HTML5 Example Preview</h1>
+            <h2 class="master-description">한빛아카데미</h2>
+        </hgroup>
+        <div id="tiime"></div>
+    </header>
+    <nav id="main-navigation">
+        <div class="pull-left">
+            <ul class="outer-menu">
+                <li class="outer-menu-item">
+                    <span class="menu-title">HTML5</span>
+                    <ul class="inner-menu">
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                    </ul>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">CSS3</span>
+                    <ul class="inner-menu">
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                    </ul>
+                </li>
+                <li class="outer-menu-item">
+                    <span class="menu-title">JavaScript</span>
+                    <ul class="inner-menu">
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                        <li class="inner-menu-item"><a href="#">데이터</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <div class="pull-right">
+            <div class="search-bar">
+                <form>
+                    <input type="text" class="input-search"/>
+                    <input type="submit" class="input-search-submit" value="검색"/>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <div id="content">
+        <section id="main-section">
+            <article>
+                <div class="article-header">
+                    <h1 class="article-title">HTML5 개요와 활용</h1>
+                    <p class="article-date">2017년 3월 21일</p>
+                </div>
+                <div class="article-body">
+                    <img src="http://placehold.it/430x280"/><br/><br/>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas interdum eu enim in sagittis. Morbi quis consectetur nunc. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Sed a leo eu mauris dapibus sollicitudin a sit amet leo. Etiam gravida tortor in mattis auctor. Cras dignissim, ipsum ut consequat suscipit, sem nisi maximus ex, non congue nisi nibh eleifend nisi. Duis elit mi, facilisis et elit eu, pretium pretium orci. Pellentesque ultricies mi vitae sapien condimentum ornare. Etiam vitae placerat arcu, sed lacinia quam. Cras sollicitudin eget ipsum id interdum. Donec ut hendrerit nisi, hendrerit molestie est. Sed ut mauris magna.</p><br/>
+                    <p>Sed rhoncus est ac vestibulum sagittis. Integer sagittis sem leo, ac dignissim velit aliquet congue. In hac habitasse platea dictumst. Nullam ullamcorper dui sit amet felis venenatis tempor. Vestibulum erat arcu, egestas quis eros quis, hendrerit cursus lorem. Nullam ultricies dui et risus vulputate hendrerit. Nunc aliquet orci mauris, in sodales tortor cursus in. Etiam suscipit tincidunt mi et dignissim.</p>
+                </div>
+            </article>
+            <article>
+                <div class="article-header">
+                    <h1 class="article-title">HTML5 응용과 실습</h1>
+                    <p class="article-date">2017년 3월 21일</p>
+                </div>
+                <div class="article-body">
+                    <img src="http://placehold.it/430x280"/><br/><br/>
+                    <p>Donec finibus id libero a faucibus. In luctus orci non ultrices maximus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. In vitae quam mollis augue tristique finibus. Vestibulum enim ex, vehicula gravida molestie ac, luctus id ligula. Maecenas sollicitudin pulvinar quam, tincidunt lobortis urna porta sit amet. Maecenas libero sapien, tincidunt quis ultricies nec, volutpat sollicitudin orci.</p><br/>
+                    <p>Nunc nunc ante, ornare at scelerisque sit amet, malesuada at nisl. Suspendisse potenti. Interdum et malesuada fames ac ante ipsum primis in faucibus. Fusce lacinia enim eu purus egestas, sed iaculis ipsum eleifend. Aenean at magna ac leo ullamcorper maximus. Etiam commodo, ligula id luctus lacinia, sapien dui maximus ipsum, in tristique arcu nibh eu odio. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Duis vel neque non velit suscipit mattis sit amet ut odio. Sed auctor feugiat felis, id elementum augue lacinia nec. Etiam vitae ipsum commodo, finibus lectus ut, ultrices ante.</p>
+                </div>
+            </article>
+        </section>
+        <aside id="main-aside">
+            <div class="aside-list" id="first">
+                <h3>카테고리</h3>
+                <ul >
+                    <li class="ll"><a href="#">데이터1</a></li>
+                    <li class="ll"><a href="#">데이터2</a></li>
+                    <li class="ll"><a href="#">데이터3</a></li>
+                    <li class="ll"><a href="#">데이터4</a></li>
+                    <li class="ll"><a href="#">데이터5</a></li>
+                </ul>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <br/>
+            <div class="aside-list">
+                <h3>최근 글</h3>
+                <ul >
+                    <li class="ll"><a href="#">데이터</a></li>
+                    <li class="ll"><a href="#">데이터</a></li>
+                    <li class="ll"><a href="#">데이터</a></li>
+                    <li class="ll"><a href="#">데이터</a></li>
+                </ul>
+            </div>
+        </aside>
+
+    </div>
+    <footer id="main-footer">
+        <a href="#">copyright@sejong</a>
+    </footer>
+</div>
+</body>
+</html>

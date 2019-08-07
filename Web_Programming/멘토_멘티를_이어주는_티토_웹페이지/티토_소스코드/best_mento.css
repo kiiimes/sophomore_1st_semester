@@ -1,0 +1,253 @@
+/*
+* set margin for left menu bar
+*/
+#main{
+	margin-top: 50px;
+	margin-left: 250px;
+}
+/*
+* set center alignment
+*/
+#main-section {
+  margin: 0 auto;
+  width: 960px;
+}
+#main-section > h1{
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+img{
+  float:left;
+}
+#c-top{
+  overflow: hidden;
+	height: 290px;
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+/* start c-left */
+#c-left{
+  float: left;
+	/* 1% = border*/
+  width: 66%;
+	height: 99%;
+  overflow: hidden;
+	border: 1px solid #e6e7e8;
+}
+#new-mentor-title{
+	float:left;
+	width:100%;
+	margin-left: 48px;
+	margin-top: 0.75em;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+.new-mentor{
+	float:left;
+	overflow: hidden;
+	border-top: 1px solid black;
+	border-bottom: 1px solid black;
+}
+#new-mentor-container{
+	overflow: visible;
+
+}
+#new-mentor-1{
+	display: inline-block;
+}
+#new-mentor-2{
+	display: none;
+}
+.new-mentor-btn{
+	/* image button init style*/
+	float:left;
+	background: white;
+	border:none;
+  height: 210px;
+}
+.new-mentor-content > *{
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/*
+	section_width*left_width_ratio
+	-image_size-imagebutton*2-margin
+	=	960*0.66-200-48-48-20
+	= 317.6*/
+	width: 317px;
+	margin-left: 20px;
+}
+#new-mentor-img{
+	margin-top:4px;
+	margin-bottom:4px;
+}
+#new-mentor-intro{
+	margin-top:4px;
+	font-weight: bold;
+}
+#new-mentor-field-title{
+	margin-top: 40px;
+}
+#new-mentor-field{
+	margin-top: 10px;
+}
+#new-mentor-selfpr{
+	margin-top: 10px;
+	margin-bottom:4px;
+	font-style: italic;
+}
+.new-mentor > *{
+	/* init children */
+  margin:0;
+  padding:0;
+  border:0;
+  float:left;
+}
+#new-mentor-state{
+	float:left;
+	width:100%;
+	margin-top: 10px;
+	margin-left: 48px;
+	font-size: 0.9em;
+	text-align: center;
+}
+
+/* start c-right */
+#c-right{
+  float: right;
+  width: 33%;
+	height: 99%;
+	border: 1px solid #e6e7e8;
+}
+#c-right-header{
+	margin-top: 0.75em;
+}
+#c-right-header > h2{
+	width:25%;
+	margin-left: 0.75em;
+	font-size: 1.1em;
+	float:left;
+}
+#c-right-header > h3{
+	width:68%;
+	font-size: 0.75em;
+	text-align:right;
+	margin-right: 0.75em;
+	float:right;
+}
+#recent-rate-mentor{
+	width: 95%;
+	height:250px;
+	/* right_title_size*margin_left
+	= 1.1*0.75
+	= 0.825*/
+	margin-left: 0.825em;
+	margin-top:40px;
+	/* left_time_size*margin_right
+	= 0.75*0.75
+	= 0.5625*/
+	margin-right: 0.5625em;
+	border-top: 1px solid black;
+}
+.recent-rate-mentor-item{
+	margin-top: 1.4em;
+}
+/*
+* normal -> hover : set color
+*/
+.recent-rate-mentor-item > a{
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	/*(width * right_side_width - right_border)*recent -recent_leftmargin-recent_rightmargin
+	(960*0.33-2px)*0.95 - 0.825em -0.5626em = about 270px*/
+	width: 270px;
+}
+.recent-rate-mentor-item > a:hover{
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 270px;
+	color: rgb(181,153,113);
+}
+
+/* start c-bottom */
+#c-bottom{
+	margin-top: 1em;
+	margin-bottom: 1em;
+}
+.best-mentor{
+	position: relative;
+	float:left;
+	width:30%;
+	height:450px;
+	background-color: #e6e7e8;
+	border-radius: 15px;
+	margin-left: 1em;
+	margin-right: 1em;
+}
+/*
+* init overlay element and set speed : 0.5s
+*/
+.showMask-overlay {
+	position:absolute;
+	bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: rgb(253,246,156);
+	opacity: 0.8;
+  overflow: hidden;
+  width: 0;
+  height: 100%;
+  transition: .5s ease;
+}
+/* set width to 100% : fill object */
+.best-mentor:hover .showMask-overlay{
+	width:100%;
+}
+/*
+* left to right transform(translate)
+*/
+.overlay-content{
+  white-space: nowrap;
+  color: black;
+	font-weight: bold;
+  font-size: 20px;
+  position: absolute;
+  overflow: hidden;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+}
+.best-mentor-rank{
+	font-weight: bold;
+	font-size: 1.2em;
+	background-color: #ffffff;
+	/*font color -> JS*/
+}
+#best-mentor-img{
+	margin-bottom: 10px;
+}
+#best-mentor-profile{
+}
+#best-mentor-profile > *{
+	text-align: center;
+}
+#best-mentor-field{
+	margin-top: 1em;
+	font-size: 1.1em;
+	font-weight: bold;
+}
+#best-mentor-name{
+	margin-top: 0.5em;
+	font-weight: bold;
+}
+#best-mentor-company{
+	margin-top: 1em;
+}

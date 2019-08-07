@@ -1,0 +1,232 @@
+#main{
+	margin-top: 80px;
+	margin-left: 380px;
+
+	/*전체 위치 지정*/
+}
+
+#board{
+	width:1200px;
+	margin:0 auto; /*게시판 넓이 1200px 중앙 정렬*/
+}
+#board header{
+	height: 70px;
+	border-bottom: 2px solid rgb(230,230,230); /*게시판 상단 버튼 부 지정*/
+}
+
+
+/*공지사항, 자유게시판 버튼 속성 지정*/
+.notice-botton {
+	display: block;
+	background: url("resource_board/notice.png");
+	background-size: 100%;
+	width: 150px;
+	height: 60px;
+	float: left;
+}
+
+.free-botton {
+	display: block;
+	background: url("resource_board/free-active.png");
+	background-size: 100%;
+	width: 180px;
+	height: 60px;
+	float: left;
+}
+
+.notice-botton:hover{
+	background: url("resource_board/notice-hover.png"); 
+	display: block;
+	background-size: 100%;
+	width: 150px;
+	height: 60px;
+	float: left;
+}
+
+
+
+/*글쓰기 버튼 스타일*/
+.write {
+	float: right;
+	margin-right: 50px;
+	background: url("resource_board/write.png");
+	display: block;
+	background-size:100%;
+	width: 150px;
+	height: 50px;
+}
+
+.write:hover{
+	float: right;
+	margin-right: 50px;
+	background: url("resource_board/write-active.png");
+	display: block;
+	background-size:100%;
+	width: 150px;
+	height: 50px;
+}
+
+/*모든 게시글에 지정될 스타일 */
+.postline{
+    border-bottom: 1px solid rgb(230,230,230);
+	height: 30px;
+	display: block;
+}
+.postline-top{
+    border-bottom: 2px solid rgb(230,230,230);
+	height: 30px;
+	display: block;
+}
+
+.title{
+	float: left;
+	margin: 5px 0 5px 30px;
+}
+.writer{
+	float: right;
+	margin: 5px 30px 5px 0;
+}
+
+/* 글쓰기 클릭 했을때 배경 */
+#black-screen{
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	z-index: 101;
+	background-color: rgba(0,0,0,0.8);
+	display: block;
+}
+
+
+
+/*글쓰기 창*/
+#white-board header{
+	height: 82px;
+}
+
+
+#white-board{
+	top: 10%;
+	left: 25%;
+	position: fixed;
+	width: 960px;
+	height: 80%;
+	z-index : 102;
+	background-color: white;
+	display: block;
+	border-radius: 15px;
+}
+#white-board h1{
+	font-size: 200%;
+	margin: 20px 0 10px 20px;
+	float: left;
+}
+
+.x{
+	float: right;
+	width: 32px;
+	height: 32px;
+	margin: 20px 20px 10px 0;
+	background: url('resource_main/X-icon.png');
+	background-size: 100%;
+}
+
+#white-board section{
+	margin-top: 20px;
+	margin-left: 30px;
+
+}
+
+#white-board p{
+	display: block;
+	float: left;
+	margin-bottom: 10px;
+	margin-left: 10px;
+}
+#white-board input{
+	width: 90%;
+	display: block;
+	margin-bottom: 10px;
+	margin-left: 10px;
+	float: left;
+}
+#white-board textarea{
+	width: 900px;
+	display: block;
+	margin: 20px 0 20px 0;
+}
+
+.write-ok{
+	font-size: 120%;
+	padding: 5px 5px 5px 5px;
+	margin-left: 750px;
+	float:left;
+}
+
+.write-cancel{
+	float: left;
+	font-size: 120%;
+	padding: 5px 5px 5px 5px;
+	margin-left: 30px;
+
+}
+
+.write-ok:hover{
+	font-weight: bold;
+}
+.write-cancel:hover{
+	font-weight: bold;
+}
+
+
+/* 게시물 창 뒤 배경*/
+.black-back{
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	z-index: 101;
+	background-color: rgba(0,0,0,0.8);
+	display: block;
+}
+
+/* 게시물 창 */
+.white-post{
+	top: 10%;
+	left: 10%;
+	position: fixed;
+	width: 80%;
+	height: 80%;
+	z-index : 102;
+	background-color: white;
+	display: block;
+	border-radius: 15px;
+}
+
+.white-post h1 {
+	font-size: 180%;
+} 
+.white-post h6 {
+	font-size: 100%;
+	font-weight: normal;
+} 
+
+.white-post header{
+	margin: 40px 60px 40px 40px;
+	border-bottom: 1px solid rgba(130,130,130,0.5);
+}
+
+.white-post section{
+	margin: 20px 0 60px 40px;
+}
+
+.white-post p{
+	font-size: 120%;
+}

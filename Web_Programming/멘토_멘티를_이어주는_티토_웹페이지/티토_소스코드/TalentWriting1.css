@@ -1,0 +1,36 @@
+#main-right{
+  margin-top: 50px;
+  margin-left: 200px;
+}
+#content {
+  margin: 0 auto;
+  width: 960px;
+}
+#content>h1{
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+.wr_subject{
+  display: inline;
+}
+.input_sub{
+  float: right;
+  margin-right: 190px;
+}
+.space_top{
+  margin-top: 10px;
+}
+.form-wr{
+  margin-top: 5px;
+}
+#submit_wr{
+  margin-left: 780px;
+}
+#topgo>img{
+  position: fixed;
+  bottom:20px;
+  margin-left: 1020px;
+  width:50px;
+  height:50px;
+}

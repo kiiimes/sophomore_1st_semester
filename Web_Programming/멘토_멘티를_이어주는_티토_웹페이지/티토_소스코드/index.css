@@ -1,0 +1,204 @@
+#main{
+    top: 0;
+    margin-left: 321px;
+    width: 1599px;
+    height: 100%;
+    min-height: 650px;
+    background-color: white;
+}
+/* 메뉴를 제외한 main부에 대한 전체 너비와 높이 지정 */
+
+#top {
+    display: block;
+}
+#bottom {
+    display: block;
+}
+/*masonry api를 사용하여, 타일형 ui를 만드는데 사용 했지만 창이 줄어들어도 왼쪽으로 창들이 나열되는것을 막기 위해
+top, bottom을 분리하여 display: block 속성을 줌으로서, 창이 줄어들어도 형태를 유지함.
+*/
+
+.main-image{ /*좌측 상단 이미지*/
+    width: 873px;
+    height: 498px;
+    display: block;
+    float: left;
+}
+
+.talent-link{ /* 재능기부 링크 */
+    width: 374px;
+    height: 498px;
+    float: left;
+    background: url('resource_main/td.png');
+    background-size: 374px;
+
+    text-align: center;
+}
+.tile{ /*모든 내부 요소에 적용되는 내용으로 테두리에 얇은 border를 씌우고 2px의 margin을 줌*/
+    margin-bottom: 2px;
+    border: 1px thin rgb(130,130,130);
+}
+.notice-link{ /* 공지사항 */
+    width: 623px;
+    height: 420px;
+    float: left;
+    background-color: #e5e5e5;
+}
+
+.best-mentor{ /* 베스트 멘토 */
+    width: 623px;
+    height: 420px;
+    float: left;
+    background-color: #e5e5e5;
+}
+
+.main-image-link{
+    display: block;
+    width: inherit;
+}
+
+.tal-link-list li{
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+.tal-link-list a{
+    font-size: 150%;
+    color: #e5e5e5;
+    font-weight: normal;
+}
+
+.tal-link-list a:hover{
+    font-weight: bolder;
+    color: black;
+}
+/*자바스크립트로 불러온 공지사항 데이터를 나열할 때 쓰이는 스타일*/
+.notice-link header > a{
+    font-size: 200%;
+    margin-left: 10px;
+    border-bottom: 1px solid rgba(130,130,130,0.3);
+}
+.notice-link header{
+    border-bottom: 1px solid rgba(130,130,130,0.3);
+    width: 500px;
+    margin-left: 20px;
+}
+
+.notice-link section{
+    height: 83%;
+    border-bottom: 1px solid rgba(130,130,130,0.3);
+}
+
+.plus-text {
+    font-size: 80%;
+    float: right;
+    margin: 5px 10px 0 0;
+}
+
+
+/*인기 멘토 부분 */
+.best-mentor header > a{
+    font-size: 200%;
+    margin-left: 10px;
+    font-weight: bold;
+}
+
+.best-mentor section{
+    margin: 5px 0 5px 20px;
+}
+.bm{
+    width: 180px;
+    height: 180px;
+    display: block;
+    float: left;
+}
+.bm-wrap a{
+    display: block;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 20px 0 20px 0;
+}
+.bm-wrap{
+    display: block;
+    height: 10%;
+    width: 20%;
+    float: left;
+}
+.image1{background:url('best_mento/김도연 멘토.jpg');}
+.image2{background:url('best_mento/박보검 멘토.jpg');}
+.image3{background:url('best_mento/변요한 멘토.jpg');}
+.image4{background:url('resource_main/best-mento.png')}
+.image{
+    display: inline-block;
+    width: 150px;
+    height: 150px;
+    background-size: 100%;
+    margin: 5px 5px 5px 5px;
+}
+
+/* 메인 공지사항 부분의 글을 클릭했을때 사용되는 부분 */
+.mainpost{
+    margin-left: 20px;
+    margin-right: 20px;
+    border-bottom: 1px solid rgba(130,130,130,0.3);
+	height: 30px;
+	display: block;
+}
+
+.title{
+	float: left;
+	margin: 5px 0 5px 30px;
+}
+
+.black-back{
+	top: 0;
+	left: 0;
+	position: fixed;
+	width: 100%;
+	height:100%;
+	min-height: 100%;
+	min-width: 100%;
+	z-index: 101;
+	background-color: rgba(0,0,0,0.8);
+	display: none;
+}
+
+.white-post{
+	top: 10%;
+	left: 10%;
+	position: fixed;
+	width: 80%;
+	height: 80%;
+	z-index : 102;
+	background-color: white;
+	display: block;
+	border-radius: 15px;
+}
+
+.white-post h1 {
+	font-size: 180%;
+}
+.white-post h6 {
+	font-size: 100%;
+	font-weight: normal;
+}
+
+.white-post header{
+	margin: 40px 60px 40px 40px;
+	border-bottom: 1px solid rgba(130,130,130,0.5);
+}
+
+.white-post section{
+	margin: 20px 0 60px 40px;
+}
+
+.white-post p{
+	font-size: 120%;
+}
+.x{
+	float: right;
+	width: 32px;
+	height: 32px;
+	margin: 20px 20px 10px 0;
+	background: url('resource_main/X-icon.png');
+	background-size: 100%;
+}

@@ -1,0 +1,151 @@
+/*페이지의 전체 위치와 제목의 위치를 조정한다.*/
+#main{
+	margin-top: 50px;
+	margin-left: 200px;
+}
+#search-box{
+  width:960px;
+  margin:0 auto;
+}
+/*font크기를 적용*/
+#search-box>h1{
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+/*검색과 관련된 드롭다운리스트 checkbox 등의 위치와 크기를 조정한다.*/
+.search-top{
+    margin-top:30px;
+    margin-left:20px;
+}
+.search-top>select{
+  float:left;
+  margin-left:70px;
+  height:35px;
+}
+
+.search-input>form>input{
+  float:left;
+  margin-left:70px;
+  height:35px;
+  width:250px;
+}
+.search-button>img{
+
+  border-radius:0 10% 10% 0;
+  /*width:50px;
+  height:40px;*/
+}
+#check>form{
+  margin-top:20px;
+  border:1px solid rgb(210,210,210);
+  height:50px;
+  width:840px;
+  padding:20px 40px;
+}
+#check>form>input{
+  width:18px;
+  height:18px;
+  margin-right:10px;
+}
+#check>form>span{
+  margin-right:30px;
+}
+/*mento의 정보를 각각 다 table로 감싸 멘토들의 정보의 크기와 위치를 조정한다.*/
+.mento>table{
+  float:left;
+
+  margin-top:20px;
+}
+.mento>table:first-child{
+  margin-left:90px;
+}
+.mento-image{
+  display:inline-block;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+/*멘토위에 마우스를 올렸을 때 블러된 이미지가 나오도록 처음에는 none을 주고*/
+/*마우스를 올렸을 시에 display:none 속성을 해제 시켜준다. */
+#yohan-blur{
+  display:none;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+#huiin-blur{
+  display:none;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+#bogum-blur{
+  display:none;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+#somi-blur{
+  display:none;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+#doyeon-blur{
+  display:none;
+  width:200px;
+  height:210px;
+  margin:10px;
+  margin-left:-50px;
+  border-radius:10px;
+}
+
+.mento-info{
+  margin-left:-5px;
+}
+
+/*멘토 버튼 정보*/
+.mento-button{
+  margin-left:50px;
+  margin-right:5px;
+
+  border:1px solid rgb(225,225,225);
+  border-radius:5px;
+  background-color:rgb(241,238,235);
+}
+/*멘토 정보부분을 float으로 하여 top 버튼이 멘토 정보의 옆 부분에 붙을수있도록 조정한다.*/
+.search-bottom{
+  width:980px;
+
+  float:left;
+}
+/*top버튼의 이미지는 화면을 줄였을 때도 움직이면 안되기 때문에 fixed했다.*/
+#topgo>img{
+	position:fixed;
+  bottom:20px;
+  left:auto;
+  width:50px;
+  height:50px;
+}
+/*mento를 감싸는 박스에대한 정보이다.*/
+.mento{
+  float:left;
+  margin-left:30px;
+  border-radius:5px;
+  margin-top:10px;
+  border:1px solid rgba(195,195,195,0.7);
+  background-color:rgba(241,238,235,0.4);
+  width:280px;
+  height:400px;
+}

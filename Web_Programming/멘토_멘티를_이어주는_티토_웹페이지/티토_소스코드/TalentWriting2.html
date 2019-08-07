@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html>
+ <meta charset="utf-8">
+ <title>멘토와 멘티를 이어주는 티토</title>
+<head>
+	<title>TEETO</title>
+	<link href="main.css" rel="stylesheet" />
+  <link href="TalentList1.css" rel="stylesheet" />
+  <link href="TalentWriting1.css" rel="stylesheet" />
+	<meta charset="UTF-8" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="main.js"></script>
+  <link href="index.css" rel="stylesheet" />
+  <script src="index.js"></script>
+  <script src="masonry.pkgd.min.js"></script>
+  <!-- small menu slide function -->
+ <script>
+   $(document).ready(function(){
+     $("#iconlink").click(function(){
+       $("#smallmenu").slideToggle('normal');
+     });
+   });
+  </script>
+  <!-- dynamic web inner stylesheet -->
+ <style>
+   @media screen and (max-width:1400px){
+     #main-right{
+      margin-left: 0;
+      margin-top: 0;
+     }
+     #content {
+       margin: 0;
+       width: 960px;
+     }
+     #left{
+       display:none;
+     }
+   }
+   @media screen and (min-width:1401px){
+     #menu-icon{
+       display:none;
+     }
+     #smallmenu{
+       display:none;
+     }
+   }
+   #smallmenu{
+     display:none;
+     width:200px;
+     margin:0 auto;
+   }
+ </style>
+</head>
+
+<body>
+  <!--회원가입 로그인-->
+  <div id="login">
+    <div id="wh">
+      <header>
+                <h1>로그인</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_login()"></a>
+            </header>
+            <section>
+        <h3>ＩＤ</h3>
+        <input type="text" id="lid">
+        <br/>
+        <h3>ＰＷ</h3>
+        <input type="password" id="lpw">
+        <br/>
+        <a href="javascript:;" onclick="log_in()">로그인</a>
+        <a href="javascript:;" onclick="logtoreg()">회원가입</a>
+            </section>
+    </div>
+  </div>
+  <div id="sign">
+    <div id="wh">
+      <header>
+                <h1>회원가입</h1>
+                <a href="javascript:;" class="xbtn" onclick="close_sign()"></a>
+            </header>
+            <section>
+        <h3>ＩＤ</h3>
+        <input type="text" id="rid">
+        <br/>
+        <h3>ＰＷ</h3>
+        <input type="password" id="rpw">
+        <br/>
+        <h3>PW확인</h3>
+        <input type="password" id="re-pw">
+        <a href="javascript:;" onclick="reg()">회원가입</a>
+            </section>
+
+    </div>
+  </div>
+  <!--메뉴-->
+  <div id="main-wrapper">
+
+    <div id="smallmenu">
+            <nav class="menu">
+            <ul class="main-menu">
+
+              <li class="outer-menu">
+                <span><a href="search.html" class="m">멘토검색</a></span>
+              </li>
+
+              <li class="outer-menu">
+                <span><a href="best_mento.html" class="m">인기멘토</a></span>
+              </li>
+              <li class="outer-menu">
+                <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+                <ul class="inner-menu menu_no1">
+                  <li class="inner-menu-item"><a href="Talent.html">재능기부란?</a></li>
+                  <li class="inner-menu-item">
+                    <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+                    <ul class="talent">
+                      <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+                      <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li class="outer-menu">
+                <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+                <ul class="inner-menu menu_no2">
+                  <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+                  <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav></div>
+    <div id="left">
+            <nav id="upper-link">
+              <br/>
+              <a class="sitemap-link" href="javascript:;" onclick="login()">로그인</a>
+              <a class="header-bar">|</a>
+              <a class="-link" href="javascript:;" onclick="signup()">회원가입</a>
+            </nav>
+            <header class="logo">
+              <a href="index.html"></a>
+            </header>
+            <nav class="menu">
+              <ul class="main-menu">
+
+                <li class="outer-menu">
+                  <span><a href="search.html" class="m">멘토검색</a></span>
+                </li>
+                <li class="outer-menu">
+                  <span><a href="best_mento.html" class="m">인기멘토</a></span>
+                </li>
+                <li class="outer-menu">
+                  <span><a class="m1" href="javascript:;" onclick="menuOpen(1)">재능기부</a></span>
+                  <ul class="inner-menu menu_no1">
+                    <li class="inner-menu-item"><a href="Talent.html">재능기부란?</a></li>
+                    <li class="inner-menu-item">
+                      <span><a href="javascript:;" onclick="smenuOpen()">재능기부 신청</a></span>
+                      <ul class="talent">
+                        <li class="inner-inner-menu-item"><a href="TalentList1.html">지식,기술 기부</a></li>
+                        <li class="inner-inner-menu-item"><a href="TalentList2.html">강연,설명회 기부</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li class="outer-menu">
+                  <span><a class="m2" href="javascript:;" onclick="menuOpen(2)">게시판</a></span>
+                  <ul class="inner-menu menu_no2">
+                    <li class="inner-menu-item"><a href="notice.html">공지사항</a></li>
+                    <li class="inner-menu-item"><a href="free.html">자유게시판</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+            <!--Footer-->
+            <footer>
+              <img class="foot-logo" src="resource_main/footer_logo2.png" width="260px" height="130px" />
+              <p class="description">웹프로그래밍 팀플</p>
+            </footer>
+          </div>
+    <div id="menu-icon">
+            <a href="#" id="iconlink"><img id="icon" src="search/메인 아이콘.png" alt="메인 아이콘" width=40 height=40/></a>
+          </div>
+  </div>
+  <!--본문-->
+  <!--재능기부 목록-->
+  <div id="main-right">
+    <div id="content">
+    <h1>재능 기부</h1>
+    <hr />
+  <!--재능기부 내용-->
+  <br />
+  <br />
+    <section id="main-section">
+      <article>
+        <div class="form-wr">
+          <label class="wr_subject">제목</label>
+          <div class="input_sub">
+            <input type="text" name="wr_subject" value=" " id="wr_subject" size="125">
+          </div>
+          <div class="space_top">
+            <textarea class="space_top" style="width:960px; height:600px"></textarea>
+          </div>
+          <br />
+          <div class="form-wr">
+            <label class="wr_link">첨부파일#1</label>
+            <input type="file" name="FileName">
+          </div>
+          <!--하드코딩-->
+          <div id="submit_wr">
+            <img src="resource_Talent/completebutton.png" width="90px;" onclick="alert('DB 구현이 안됩니다.')" />
+            <!--작성 취소 누를 시 전 페이지 이동-->
+            <a href="TalentList2.html"><img src="resource_Talent/canclebutton.png" width="90px;" /></a>
+          </div>
+        </div>
+          <a id="topgo" href="#content"><img src="search/위로 가기.png" alt="맨 위로"/></a>
+      </article>
+    </section>
+  </div>
+</div>
+	<div id="footer">
+	</div>
+</body>
+
+</html>

@@ -1,0 +1,108 @@
+#main-right{
+  margin-top: 50px;
+  margin-left: 200px;
+}
+#content {
+  margin: 0 auto;
+  width: 960px;
+}
+#content>h1{
+  font-size: 2em;
+  font-weight: bold;
+  margin-bottom: 1em;
+}
+#search-box{
+  width:1200px;
+  margin:0 auto;
+}
+.search-top{
+    margin-top:10px;
+    margin-left:50px;
+}
+.search-top>select{
+  float:left;
+  margin-right:30px;
+  margin-left:20px;
+  height:35px;
+}
+.search-input>form>input{
+  float:left;
+  margin-left:20px;
+  height:35px;
+  width:250px;
+}
+.search-button>form>input{
+  border-radius:0 10% 10% 0;
+  width:50px;
+  height:40px;
+}
+#main-section{
+  margin : 0 auto;
+  width: 1150px;
+  font-family : 'Malgun Gothic', '맑은 고딕', sans-serif;
+}
+.list-board{
+  margin-right: 200px;
+}
+.number{
+  margin-left: 100px;
+}
+.subject{
+  margin-left: 200px;
+}
+.name{
+  margin-left: 200px;
+}
+.date{
+  margin-left: 140px;
+}
+.number-sub{
+  margin-left: 70px;
+}
+.subject-sub{
+  margin-left: 50px;
+}
+.name-sub{
+  margin-left: 55px;
+}
+.date-sub{
+  margin-left: 110px;
+}
+.subject-subsub{
+  margin-left: 120px;
+}
+.name-subsub{
+  margin-left: 152px;
+}
+.write{
+  margin-top: 480px;
+  margin-left: 850px;
+}
+#duck{
+  margin-left: 25px;
+}
+.page{
+  margin-left: 410px;
+  overflow: hidden;
+}
+.act{
+  width: 100px;
+  margin-left: 50px;
+}
+.ac{
+  float: left;
+  list-style: none;
+  padding: 10px;
+}
+li.ac:first-child{background-color: skyblue; color: white;}
+.space{
+  box-shadow: 1px 1px 5px black;
+  border-radius: 2px 2px 2px 2px;
+}
+#topgo>img{
+  position: fixed;
+  bottom:20px;
+  margin-left: 1020px;
+  width:50px;
+  height:50px;
+}
